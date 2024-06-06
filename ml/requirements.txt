@@ -1,0 +1,8 @@
+pandas
+scikit-learn
+beautifulsoup4
+newspaper3k
+lxml_html_clean
+nltk
+matplotlib
+seaborn
