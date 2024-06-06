@@ -1,14 +1,18 @@
 "use client"; 
 import React, { useState } from 'react';
+import PreprocessedData from './PreprocessedData';
+import PoliticalBias from './PoliticalBias';
 
 const NewsForm: React.FC = () => {
   const [url, setUrl] = useState('');
   const [data, setData] = useState(null);
   const [error, setError] = useState<string | null>(null);
+  const [fetching, setFetching] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    setFetching(true)
 
     try {
       const res = await fetch('/api/process-url', {
@@ -27,6 +31,8 @@ const NewsForm: React.FC = () => {
       }
     } catch (err) {
       setError('An error occurred while processing the URL.');
+    }finally {
+      setFetching(false); // reset processing state
     }
   };
 
@@ -40,17 +46,16 @@ const NewsForm: React.FC = () => {
           placeholder="Enter news URL"
           className="p-2 border border-gray-300 text-black rounded"
         />
-        <button type="submit" className="ml-2 p-2 bg-blue-500 text-white rounded">
-          Submit
-        </button>
+        <button type="submit" disabled={fetching} className={`p-2 bg-blue-500 text-white rounded ${fetching ? 'opacity-50 cursor-not-allowed' : ''}`}>
+        {fetching ? 'Loading...' : 'Submit'}
+      </button>
       </form>
       {error && <p className="text-red-500">{error}</p>}
-      {data && (
-        <div>
-          <h2 className="mt-4 font-bold">Processed Data</h2>
-          <pre className="bg-gray-100 p-4  text-black rounded">{JSON.stringify(data, null, 2)}</pre>
-        </div>
-      )}
+      {data && <>
+      <PreprocessedData resultData={data} />
+      <PoliticalBias preprocessedData={data}/>
+      </>
+      }
     </div>
   );
 };
