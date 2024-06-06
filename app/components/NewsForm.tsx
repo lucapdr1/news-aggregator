@@ -38,7 +38,7 @@ const NewsForm: React.FC = () => {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder="Enter news URL"
-          className="p-2 border border-gray-300 rounded"
+          className="p-2 border border-gray-300 text-black rounded"
         />
         <button type="submit" className="ml-2 p-2 bg-blue-500 text-white rounded">
           Submit
@@ -48,7 +48,7 @@ const NewsForm: React.FC = () => {
       {data && (
         <div>
           <h2 className="mt-4 font-bold">Processed Data</h2>
-          <pre className="bg-gray-100 p-4 rounded">{JSON.stringify(data, null, 2)}</pre>
+          <pre className="bg-gray-100 p-4  text-black rounded">{JSON.stringify(data, null, 2)}</pre>
         </div>
       )}
     </div>
