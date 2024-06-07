@@ -2,7 +2,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { spawn } from 'child_process';
 import path from 'path';
-import { NextApiRequest } from 'next';
 
 export async function POST(req: NextRequest) {
   
