@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { spawn } from 'child_process';
 import path from 'path';
 
+/*
 export function GET(req: NextRequest) {
     //TODO: check if dirname is exact
     const scriptPath = path.join(process.cwd(), '/ml', 'popular_newspapers.py');
@@ -17,7 +18,7 @@ export function GET(req: NextRequest) {
         console.error(`stderr: ${data}`);
     });
 
-    return new Promise((resolve) => {
+    return new Promise<Response>((resolve) => {
         childProcess.on('close', (code) => {
         console.log("Child process closed with code:", code);
         
@@ -37,4 +38,7 @@ export function GET(req: NextRequest) {
         }
         });
     });
+}*/
+export function GET(req: NextRequest) {
+    return NextResponse.json({ error: 'Method not allowed' });
 }

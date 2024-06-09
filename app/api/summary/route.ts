@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
     console.error(`stderr: ${data}`);
   });
 
-  return new Promise((resolve) => {
+  return new Promise<Response>((resolve) => {
     childProcess.on('close', (code) => {
       console.log("Child process closed with code:", code);
       
