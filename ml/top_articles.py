@@ -24,18 +24,20 @@ if __name__ == "__main__":
     top_articles = get_top_articles(news_url, num_articles=5)
 
     articles_info = []
+  
     # Display article titles
     for url, article in top_articles:
         single_info = {
-            "newspaper": news_url,
+            "newspaper": str(news_url),
             "title": article.title,
             "date": article.publish_date.strftime('%Y-%m-%d') if article.publish_date else None,
-            "url": url
+            "text" : article.text,
+            "url": str(url)
         }
         articles_info.append(single_info)
 
     # Convert the list to a JSON object
-    articles_json = json.dumps(articles_info, indent=4)
+    articles_json = json.dumps(articles_info)
 
     # Print the JSON object
     print(articles_json)

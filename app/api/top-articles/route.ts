@@ -27,6 +27,7 @@ export async function POST(req: NextRequest) {
         // Parse the result if the child process exited successfully
         if (code === 0) {
             try {
+            console.log(result)
             const childProcessedData = JSON.parse(result);
             resolve(NextResponse.json(childProcessedData, { status: 200 }));
             } catch (error) {
