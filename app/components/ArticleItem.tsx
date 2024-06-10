@@ -14,9 +14,9 @@ interface Props {
 
 const ArticleItem: React.FC<Props> = ({ article }) => {
     const [summary, setSummary] = useState<string | null>(null);
-    const [bias, setBias] = useState<string | null>(null);
+    const [Sentiment, setSentiment] = useState<string | null>(null);
     const [loadingSummary, setLoadingSummary] = useState<boolean>(false);
-    const [loadingBias, setLoadingBias] = useState<boolean>(false);
+    const [loadingSentiment, setLoadingSentiment] = useState<boolean>(false);
 
     const summarizeArticle = async () => {
         setLoadingSummary(true)
@@ -38,10 +38,10 @@ const ArticleItem: React.FC<Props> = ({ article }) => {
         }
     };
 
-    const getPoliticalBias = async () => {
-        setLoadingBias(true);
+    const getSentiment = async () => {
+        setLoadingSentiment(true);
         try {
-            const res = await fetch('api/political-bias', {
+            const res = await fetch('api/sentiment', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
@@ -49,11 +49,11 @@ const ArticleItem: React.FC<Props> = ({ article }) => {
                 body: JSON.stringify({ url : article.url }),
               });
             const data = await res.json();
-            setBias(data);
+            setSentiment(data);
         } catch (error) {
-            console.error('Error getting political bias:', error);
+            console.error('Error getting sentiment:', error);
         }finally{
-            setLoadingBias(false)
+            setLoadingSentiment(false)
         }
     };
 
@@ -71,14 +71,14 @@ const ArticleItem: React.FC<Props> = ({ article }) => {
                 </button>
                 <button
                     className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
-                    onClick={getPoliticalBias}
-                    disabled={loadingBias}
+                    onClick={getSentiment}
+                    disabled={loadingSentiment}
                 >
-                    {loadingBias ? 'Loading Bias...' : 'Get Political Bias'}
+                    {loadingSentiment ? 'Loading Sentiment...' : 'Get sentiment'}
                 </button>
             </div>
             {summary && <p className="mb-2"><strong>Summary:</strong> {summary}</p>}
-            {bias && <p><strong>Political Bias:</strong> {bias}</p>}
+            {Sentiment && <p><strong>sentiment:</strong> {Sentiment}</p>}
         </div>
     );
 };

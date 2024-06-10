@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
   console.log(text)
 
   //TODO: check if dirname is exact
-  const scriptPath = path.join(process.cwd(), '/ml', 'political_bias_detection.py');
+  const scriptPath = path.join(process.cwd(), '/ml', 'sentiment.py');
   const childProcess = spawn('python', [scriptPath, text]);
 
   let result = '';

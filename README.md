@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# News Aggregator
 
-## Getting Started
+## Introduction
+This is a Next.js web application that serves as a news aggregator, incorporating machine learning functionalities for article summarization and sentiment detection. The app aggregates top articles from predefined news sources, provides summaries of articles, and detects their sentimentes. It consists of frontend components for displaying the feed, article list, and individual articles, as well as backend APIs for retrieving top articles, summarizing articles, and detecting sentiment.
 
-First, run the development server:
+## Project Structure
+.
+├── components
+│   ├── Feed.tsx           # Component for rendering the main feed
+│   ├── ArticleList.tsx    # Component for rendering a list of articles
+│   └── ArticleItem.tsx    # Component for rendering an individual article item
+├── api
+│   ├── top-articles       # API endpoint for retrieving top articles
+│   ├── sentiment     # API endpoint for detecting sentiment
+│   └── summary            # API endpoint for summarizing articles
+└── ml
+    ├── top_articles.py    # Python script for retrieving top articles
+    ├── sentiment.py  # Python script for detecting sentiment
+    └── summary.py         # Python script for summarizing articles
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **components**: Contains React components responsible for rendering different parts of the user interface. `Feed.tsx` renders the main feed page, `ArticleList.tsx` renders a list of articles, and `ArticleItem.tsx` renders an individual article item.
+- **api**: Includes backend API endpoints for interacting with the machine learning scripts and retrieving data for the frontend. The `top-articles` endpoint retrieves top articles, the `sentiment` endpoint detects sentiment, and the `summary` endpoint provides article summaries.
+- **ml**: Houses Python scripts for performing machine learning tasks. `top_articles.py` scrapes top articles from predefined news sources, `sentiment.py` detects the sentiment of articles, and `summary.py` generates summaries of articles.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
+To run the application:
+1. Ensure you have Node.js and Python installed on your machine.
+2. Install the required dependencies by running `npm install` and `pip install -r requirements.txt`
+3. Start the Next.js development server by running `npm run dev`.
+4. Access the application at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Dependencies
+- Next.js: Framework for building React applications
+- Newspaper4k: Library for web scraping news articles
+- Transformers: Library for natural language processing tasks
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Features
+- **Top Articles Retrieval**: Scrapes top articles from predefined news sources.
+- **Article Summarization**: Summarizes articles to provide concise representations.
+- **sentiment Detection**: Determines the sentiment of articles based on sentiment analysis.
 
-To learn more about Next.js, take a look at the following resources:
+### Top Articles Retrieval
+The script scrapes the top articles from predefined news sources listed in the `newspaper_list`. It utilizes the `newspaper` library to build newspaper objects from these URLs. The `get_top_articles` function takes a newspaper URL and retrieves a specified number of top articles (default is 5) from it. It then extracts relevant information from each article, including its title, publication date, text content, and URL. This feature enables the aggregation of recent articles from multiple news sources.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Article Summarization
+For article summarization, the script employs the `summarize` function. This function takes an article URL as input and utilizes the `newspaper` library to download, parse, and perform natural language processing (NLP) on the article. By leveraging NLP, it generates a summary of the article's content. This summary provides a condensed representation of the article's main points, making it easier for users to grasp the essential information without having to read the entire article.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Sentiment Detection
+The script includes a `detect_sentiment` function that determines the sentiment of articles based on sentiment analysis. It utilizes the `transformers` library to load a sentiment analysis model pretrained on English text. The sentiment analysis model assigns a sentiment score to the text, indicating the overall sentiment (positive, negative, or neutral). Based on this score, the function categorizes the article's sentiment as 'left-leaning,' 'right-leaning,' or 'neutral.'
 
-## Deploy on Vercel
+## Demo
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Once loaded, the web application constructs a dynamic feed featuring the most recent articles from renowned newspapers.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![Feed](public/img/feed.PNG)
+
+For each article, we can initiate our Python scripts via an API call. These scripts, powered by machine learning models, execute specified tasks and deliver responses in JSON format which is integrated into the React components
+
+![Article](public/img/article.PNG)
+
+
+
