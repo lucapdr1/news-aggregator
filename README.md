@@ -4,19 +4,7 @@
 This is a Next.js web application that serves as a news aggregator, incorporating machine learning functionalities for article summarization and sentiment detection. The app aggregates top articles from predefined news sources, provides summaries of articles, and detects their sentimentes. It consists of frontend components for displaying the feed, article list, and individual articles, as well as backend APIs for retrieving top articles, summarizing articles, and detecting sentiment.
 
 ## Project Structure
-.
-├── components
-│   ├── Feed.tsx           # Component for rendering the main feed
-│   ├── ArticleList.tsx    # Component for rendering a list of articles
-│   └── ArticleItem.tsx    # Component for rendering an individual article item
-├── api
-│   ├── top-articles       # API endpoint for retrieving top articles
-│   ├── sentiment     # API endpoint for detecting sentiment
-│   └── summary            # API endpoint for summarizing articles
-└── ml
-    ├── top_articles.py    # Python script for retrieving top articles
-    ├── sentiment.py  # Python script for detecting sentiment
-    └── summary.py         # Python script for summarizing articles
+![structure](public/img/structure.PNG)
 
 - **components**: Contains React components responsible for rendering different parts of the user interface. `Feed.tsx` renders the main feed page, `ArticleList.tsx` renders a list of articles, and `ArticleItem.tsx` renders an individual article item.
 - **api**: Includes backend API endpoints for interacting with the machine learning scripts and retrieving data for the frontend. The `top-articles` endpoint retrieves top articles, the `sentiment` endpoint detects sentiment, and the `summary` endpoint provides article summaries.
