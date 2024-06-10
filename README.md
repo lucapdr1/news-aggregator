@@ -58,6 +58,3 @@ Once loaded, the web application constructs a dynamic feed featuring the most re
 For each article, we can initiate our Python scripts via an API call. These scripts, powered by machine learning models, execute specified tasks and deliver responses in JSON format which is integrated into the React components
 
 ![Article](public/img/article.PNG)
-
-
-
