@@ -3,7 +3,7 @@
 ## Introduction
 This is a Next.js web application that serves as a news aggregator, incorporating machine learning functionalities for article summarization and sentiment detection. The app aggregates top articles from predefined news sources, provides summaries of articles, and detects their sentimentes. It consists of frontend components for displaying the feed, article list, and individual articles, as well as backend APIs for retrieving top articles, summarizing articles, and detecting sentiment.
 
-An explanation regarding only the python code can be foud here: [netebook](ml/_news_aggregator.html)
+An explanation regarding only the python code can be foud here: [netebook](https://nbviewer.org/github/lucapdr1/news-aggregator/blob/main/ml/_news_aggregator.ipynb)
 
 ## Project Structure
 ![structure](public/img/structure.PNG)
