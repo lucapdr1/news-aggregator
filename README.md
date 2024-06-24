@@ -39,6 +39,34 @@ For article summarization, the script employs the `summarize` function. This fun
 ### Sentiment Detection
 The script includes a `detect_sentiment` function that determines the sentiment of articles based on sentiment analysis. It utilizes the `transformers` library to load a sentiment analysis model pretrained on English text. The sentiment analysis model assigns a sentiment score to the text, indicating the overall sentiment (positive, negative, or neutral). Based on this score, the function categorizes the article's sentiment as 'left-leaning,' 'right-leaning,' or 'neutral.'
 
+## Unit Tests
+
+The [`\ml\tests`](https://github.com/lucapdr1/news-aggregator/tree/main/ml/tests) folder contains comprehensive tests for the sentiment analysis module, including tests for various types of predictions and for verifying the completeness of the data scraped using the newspaper library.
+
+## Deployment
+
+The [Dockerfile](https://github.com/lucapdr1/news-aggregator/Dockerfile) sets up a multi-stage build for a project combining Python and Node.js environments.
+
+#### Stage 1: Python Environment
+- **Base Images**: `python:3.9-alpine` and `gcr.io/tensorflow/tensorflow:latest`.
+- **Setup**: Installs essential tools and Python dependencies.
+
+#### Stage 2: Node Dependencies
+- **Base Image**: `node:lts-alpine`.
+- **Setup**: Installs Node.js dependencies using `npm ci`.
+
+#### Stage 3: Node Builder
+- **Base Image**: `node:lts-alpine`.
+- **Setup**: Copies dependencies and source code, then runs the build process.
+
+#### Stage 4: Production Environment
+- **Base Image**: `node:lts-alpine`.
+- **Setup**: Sets environment variables, adds a non-root user, copies necessary files, and integrates the Python environment.
+- **Final Configuration**: Exposes port 3000 and sets the command to start the application.
+
+This approach creates a production image by leveraging multi-stage builds and installing dependencies for both python and node.
+
+
 ## Demo
 
 Once loaded, the web application constructs a dynamic feed featuring the most recent articles from renowned newspapers.
