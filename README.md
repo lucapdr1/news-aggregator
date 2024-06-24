@@ -45,7 +45,7 @@ The [`\ml\tests`](https://github.com/lucapdr1/news-aggregator/tree/main/ml/tests
 
 ## Deployment
 
-The [Dockerfile](https://github.com/lucapdr1/news-aggregator/Dockerfile) sets up a multi-stage build for a project combining Python and Node.js environments.
+The [Dockerfile](https://github.com/lucapdr1/news-aggregator/blob/main/Dockerfile) sets up a multi-stage build for a project combining Python and Node.js environments.
 
 #### Stage 1: Python Environment
 - **Base Images**: `python:3.9-alpine` and `gcr.io/tensorflow/tensorflow:latest`.
