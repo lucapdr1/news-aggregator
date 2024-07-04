@@ -24,7 +24,7 @@ def extract_topics(model, feature_names, no_top_words):
     topicString = ""
     for topic in model.components_:
         topicString = " ".join([feature_names[i] for i in topic.argsort()[:-no_top_words - 1:-1]])
-    return topicString
+    return str(topicString)
 
 
 
@@ -50,6 +50,6 @@ if __name__ == "__main__":
     # Example usage with one of the popular news sites
     topics = get_topic(text_to_process)
 
-    topic_json = json.dumps({"topics" : topics })
+    topic_json = json.dumps(topics)
 
     print(topic_json)
