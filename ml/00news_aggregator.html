@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>_news_aggregator</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>00news_aggregator</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7485,7 +7485,8 @@ a.anchor-link {
 <h1 id="News-Aggregator">News Aggregator<a class="anchor-link" href="#News-Aggregator">¶</a></h1><h2 id="Features">Features<a class="anchor-link" href="#Features">¶</a></h2><ul>
 <li><strong>Top Articles Retrieval</strong>: Scrapes top articles from predefined news sources.</li>
 <li><strong>Article Summarization</strong>: Summarizes articles to provide concise representations.</li>
-<li><strong>sentiment Detection</strong>: Determines the sentiment of articles based on sentiment analysis.</li>
+<li><strong>Sentiment Detection</strong>: Determines the sentiment of articles based on sentiment analysis.</li>
+<li><strong>Topic Modeling</strong>: Describes with three words the topic of the articles</li>
 </ul>
 </div>
 </div>
@@ -7495,7 +7496,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">newspaper</span>
@@ -7525,7 +7526,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_top_articles</span><span class="p">(</span><span class="n">newspaper_url</span><span class="p">,</span> <span class="n">num_articles</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
@@ -7574,8 +7575,16 @@ a.anchor-link {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>c:\Users\P2001\anaconda3\envs\dw\lib\site-packages\newspaper\source.py:260: FutureWarning: The behavior of this method will change in future versions. Use specific 'len(elem)' or 'elem is not None' test instead.
+  if feed.doc:
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>{'newspaper': 'https://www.theguardian.com/europe', 'title': 'More tax cuts, fewer green policies: key takeaways from the Tories’ manifesto', 'date': '2024-06-11', 'text': '1. Tax cuts, again\n\nThe overriding theme of the manifesto and the launch – and, indeed, of the whole Tory campaign – has been an attempt to contrast promised tax cuts with the idea, however contested, of Labour tax rises.\n\nThe manifesto thus produced the mini-surprise of a pledge to abolish national insurance contributions (NICs) for self-employed people, plus the briefed-out plan to cut 2p more from NICs for employed workers, and the slightly vaguer promise to eventually phase out NICs “when it is affordable to do so”.\n\nWhile there were other pre-billed cuts, for example to stamp duty and a higher threshold for child benefits, there was nothing on inheritance tax, as sought by some Tory MPs.\n\n2. No rabbit, no hat\n\nWhile one Tory spinner made the reasonable point that the purpose of a manifesto is not simply to surprise journalists, many of Sunak’s MPs might have been hoping for something bold, something that could grab attention, or even better shift the polling dial.\n\nWhether or not that was a realistic hope, the only half-surprises came with NICs, plus a few details such as the expanded housing target of 1.6m new homes being built in the next parliament, and a revised version of the help to buy scheme.\n\nMany of the main policy offerings, however, had been well trailed in advance, for example the pledge to boost defence spending to 2.5% of GDP, the plan for a new form of national service for young people and a statutory cap on migration numbers.\n\nOne absence was any new policy, or even new language, on the UK potentially leaving the European convention on human rights, another ask from rightwing Tories.\n\n3. A populist blueprint\n\nSome rightwing Tories might view the manifesto as cautious and limp, but the signs of Sunak and his ministers trying to head off the threat from Nigel Farage and Reform UK are obvious throughout the document.\n\nThe bulk of the section on net zero is aimed at watering down or caveating green plans, with a pledge to impose no new environmental levies or a frequent flyer tax. Another part of the manifesto promises to clamp down even harder on protests.\n\nThere is also a long section outlining the party’s proposals on gender identity, which at just over 400 words is four times as long as the entire section on social care. The term “poverty” gets only one mention, in relation to international aid.\n\n4. Policy re-treads\n\nWhen it came to pending legislation, the Conservatives appeared as surprised as anyone that they had just called an election, and several policies personally linked to Sunak failed to make it, including a gradual ban on tobacco and a crackdown on vape sales, plus making maths study mandatory to 18.\n\nOthers fallen bills would be resurrected, such as the long-delayed plan to ban no-fault evictions from residential properties, and reform of the leasehold system.\n\nThose return in the manifesto as does, obviously, the Rwanda deportation plan, with a promise to begin a “regular rhythm of flights every month, starting this July” – even if Sunak declined to say how many asylum seekers would be deported.\n\n5. But not everything makes it\n\nOne long-held Tory idea that has not been revived is the ban on so-called conversion therapies. While saying they are “abhorrent”, the manifesto adds: “But legislation around conversion practices is a very complex issue, with existing criminal law already offering robust protections.”', 'url': 'https://www.theguardian.com/politics/article/2024/jun/11/more-tax-cuts-fewer-green-policies-key-takeaways-from-the-tories-manifesto'}
+<pre>{'newspaper': 'https://time.com/', 'title': 'Parent Company of Saks Fifth Avenue to Buy Rival Neiman Marcus', 'date': '2024-07-04', 'text': "The parent company of Saks Fifth Avenue has signed a deal to buy upscale rival Neiman Marcus for $2.65 billion.\n\nThe new entity would be called Saks Global, which will comprise the Saks Fifth Avenue and Saks OFF 5TH brands, Neiman Marcus and Bergdorf Goodman, as well as the real estate assets of Neiman Marcus Group and HBC, a holding company that purchased Saks in 2013.\n\nThe pact was announced Thursday after months of rumors that the department store chains had been negotiating a deal.\n\nThe Wall Street Journal first reported the impending deal Wednesday.\n\nBoth Saks and Neiman Marcus have struggled as shoppers have been pulling back on buying high-end goods and shifting their spending toward experiences, like travel and upscale restaurants. The two iconic luxury purveyors have also faced stiffer competition from luxury brands, which are increasingly opening their own stores. The deal would help reduce operating costs and create more negotiating power with vendors.\n\nSaks Fifth Avenue currently operates 39 stores in the U.S., including its Manhattan flagship. In early 2021, Saks spun off its website into a separate company, with the hopes of expanding that business at a time when more people were shopping online.\n\nNeiman Marcus filed for bankruptcy protection in May 2020 during the first months of the coronavirus pandemic but emerged in September of that year. Like many of its peers, the privately held department store chain was forced to temporarily close its stores for several months.\n\nMeanwhile, other department stores are under pressure to keep increasing sales.\n\nStoried Lord &amp; Taylor announced in late August 2020 it was closing all its stores after filing for bankruptcy earlier that month. It's operating online. Macy’s announced in February of this year that it will close 150 unproductive namesake stores over the next three years including 50 by year-end.\n\nConsumers have proven resilient and willing to shop even after a bout of inflation, though behaviors have shifted, with some Americans trading down to lower-priced goods.\n\nA deal between the two luxury retailers does not resolve all the issues, especially when high-end shoppers are looking to buy luxury goods online or at luxury brands' own stores, Saunders said.\n\n“As a larger entity, negotiating power will be a little better with the brands, but even a combined chain would not match the heft and power of the global luxury conglomerates, which would still hold most of the cards,” Saunders said. “As such, there is a risk that the deal might end up creating an even bigger headache for Saks.”", 'url': 'https://time.com/6995155/parent-company-of-saks-fifth-avenue-to-buy-rival-neiman-marcus-as-department-stores-struggle/'}
 </pre>
 </div>
 </div>
@@ -7597,7 +7606,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">summarize</span><span class="p">(</span><span class="n">article_url</span><span class="p">):</span>
@@ -7608,7 +7617,6 @@ a.anchor-link {
     <span class="k">return</span> <span class="n">article</span><span class="o">.</span><span class="n">summary</span>
 
 <span class="c1">#Example usage</span>
-
 <span class="n">summarize</span><span class="p">(</span><span class="n">articles_info</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'url'</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -7620,9 +7628,9 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>'Tax cuts, again The overriding theme of the manifesto and the launch – and, indeed, of the whole Tory campaign – has been an attempt to contrast promised tax cuts with the idea, however contested, of Labour tax rises.\nWhile there were other pre-billed cuts, for example to stamp duty and a higher threshold for child benefits, there was nothing on inheritance tax, as sought by some Tory MPs.\nOthers fallen bills would be resurrected, such as the long-delayed plan to ban no-fault evictions from residential properties, and reform of the leasehold system.\nBut not everything makes it One long-held Tory idea that has not been revived is the ban on so-called conversion therapies.\nWhile saying they are “abhorrent”, the manifesto adds: “But legislation around conversion practices is a very complex issue, with existing criminal law already offering robust protections.”'</pre>
+<pre>'The parent company of Saks Fifth Avenue has signed a deal to buy upscale rival Neiman Marcus for $2.65 billion.\nThe new entity would be called Saks Global, which will comprise the Saks Fifth Avenue and Saks OFF 5TH brands, Neiman Marcus and Bergdorf Goodman, as well as the real estate assets of Neiman Marcus Group and HBC, a holding company that purchased Saks in 2013.\nBoth Saks and Neiman Marcus have struggled as shoppers have been pulling back on buying high-end goods and shifting their spending toward experiences, like travel and upscale restaurants.\nThe two iconic luxury purveyors have also faced stiffer competition from luxury brands, which are increasingly opening their own stores.\nNeiman Marcus filed for bankruptcy protection in May 2020 during the first months of the coronavirus pandemic but emerged in September of that year.'</pre>
 </div>
 </div>
 </div>
@@ -7634,7 +7642,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Sentiment-Detection">Sentiment Detection<a class="anchor-link" href="#Sentiment-Detection">¶</a></h3><p>The script includes a <code>detect_sentiment</code> function that determines the political bias of articles based on sentiment analysis. It utilizes the <code>transformers</code> library to load a sentiment analysis model pretrained on English text. The sentiment analysis model assigns a sentiment score to the text, indicating the overall sentiment (positive, negative, or neutral). Based on this score, the function categorizes the article's political bias as 'left-leaning,' 'right-leaning,' or 'neutral.'</p>
+<h3 id="Sentiment-Detection">Sentiment Detection<a class="anchor-link" href="#Sentiment-Detection">¶</a></h3><p>The script includes a <code>detect_sentiment</code> function that determines the political bias of articles based on sentiment analysis. It utilizes the <code>transformers</code> library to load a sentiment analysis model pretrained on text from different languages. The sentiment analysis model assigns a sentiment score to the text, indicating the overall sentiment (positive, negative, or neutral). Based on this score, the function categorizes the article's political bias as 'left-leaning,' 'right-leaning,' or 'neutral.'</p>
 </div>
 </div>
 </div>
@@ -7643,23 +7651,25 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span>
 
 <span class="k">def</span> <span class="nf">detect_sentiment</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="c1"># Load sentiment analysis model with explicit model and revision</span>
-    <span class="n">sentiment_model</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s2">"sentiment-analysis"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"distilbert-base-uncased-finetuned-sst-2-english"</span><span class="p">,</span> <span class="n">revision</span><span class="o">=</span><span class="s2">"af0f99b"</span><span class="p">)</span>
+    <span class="n">sentiment_model</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"nlptown/bert-base-multilingual-uncased-sentiment"</span><span class="p">)</span>
 
     <span class="c1"># Perform sentiment analysis on the text</span>
     <span class="n">sentiment</span> <span class="o">=</span> <span class="n">sentiment_model</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 
     <span class="c1"># Based on sentiment score, determine sentiment</span>
-    <span class="n">sentiment_score</span> <span class="o">=</span> <span class="n">sentiment</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'score'</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">sentiment_score</span> <span class="o">&gt;=</span> <span class="mf">0.6</span><span class="p">:</span>
+    <span class="n">sentiment_label</span> <span class="o">=</span> <span class="n">sentiment</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'label'</span><span class="p">]</span>
+    <span class="n">sentiment_score</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">sentiment_label</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">sentiment_score</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
         <span class="k">return</span> <span class="s1">'positive'</span>
-    <span class="k">elif</span> <span class="n">sentiment_score</span> <span class="o">&lt;=</span> <span class="mf">0.4</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">sentiment_score</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
         <span class="k">return</span> <span class="s1">'negative'</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="s1">'neutral'</span>
@@ -7674,24 +7684,106 @@ a.anchor-link {
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>c:\Users\P2001\anaconda3\envs\dw\lib\site-packages\tqdm\auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre>
+</div>
+</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>'positive'</pre>
+<pre>'negative'</pre>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Topic-Modeling">Topic Modeling<a class="anchor-link" href="#Topic-Modeling">¶</a></h3><p>The script includes a <code>get_topic</code> function that determines the main topics of articles using topic modeling. It utilizes the <code>sklearn</code> library to load a Latent Dirichlet Allocation (LDA) model. The <code>preprocess_text</code> function cleans the text by removing non-alphabet characters, converting to lowercase, and eliminating stopwords. The text is then transformed into a document-term matrix using <code>CountVectorizer</code>. The LDA model identifies the dominant topics within the text, and the <code>extract_topics</code> function retrieves the top words representing these topics. This approach helps in summarizing the main themes of the text, making it easier to understand the central topics of the article.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">LatentDirichletAllocation</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">'stopwords'</span><span class="p">)</span>
+
+<span class="c1"># Preprocessing function</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'english'</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">preprocess_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\s+'</span><span class="p">,</span> <span class="s1">' '</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># Remove extra whitespace</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'[^a-zA-Z]'</span><span class="p">,</span> <span class="s1">' '</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># Remove non-alphabet characters</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>  <span class="c1"># Convert to lowercase</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">])</span>  <span class="c1"># Remove stopwords</span>
+    <span class="k">return</span> <span class="n">text</span>
+
+<span class="c1"># Display Topics</span>
+<span class="k">def</span> <span class="nf">extract_topics</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">feature_names</span><span class="p">,</span> <span class="n">no_top_words</span><span class="p">):</span>
+    <span class="n">topicString</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="k">for</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">components_</span><span class="p">:</span>
+        <span class="n">topicString</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">feature_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">topic</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[:</span><span class="o">-</span><span class="n">no_top_words</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="n">topicString</span>
+
+
+
+<span class="k">def</span> <span class="nf">get_topic</span><span class="p">(</span><span class="n">text_to_process</span><span class="p">):</span>
+    <span class="c1"># Preprocess the document</span>
+    <span class="n">preprocessed_text</span> <span class="o">=</span> <span class="n">preprocess_text</span><span class="p">(</span><span class="n">text_to_process</span><span class="p">)</span>
+
+    <span class="c1"># Vectorization</span>
+    <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">max_df</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_df</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span> <span class="n">stop_words</span><span class="o">=</span><span class="s1">'english'</span><span class="p">)</span>
+    <span class="n">dtm</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">([</span><span class="n">preprocessed_text</span><span class="p">])</span>
+
+    <span class="c1"># LDA Model</span>
+    <span class="n">lda</span> <span class="o">=</span> <span class="n">LatentDirichletAllocation</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+    <span class="n">lda</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dtm</span><span class="p">)</span>
+
+    <span class="n">number_top_words</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">return</span> <span class="n">extract_topics</span><span class="p">(</span><span class="n">lda</span><span class="p">,</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">(),</span> <span class="n">number_top_words</span><span class="p">)</span>
+
+<span class="n">get_topic</span><span class="p">(</span><span class="n">articles_info</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'text'</span><span class="p">])</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\P2001\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>'saks stores luxury'</pre>
 </div>
 </div>
 </div>
