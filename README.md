@@ -1,7 +1,7 @@
 # News Aggregator
 
 ## Introduction
-This is a Next.js web application that serves as a news aggregator, incorporating machine learning functionalities for article summarization and sentiment detection. The app aggregates top articles from predefined news sources, provides summaries of articles, and detects their sentimentes. It consists of frontend components for displaying the feed, article list, and individual articles, as well as backend APIs for retrieving top articles, summarizing articles, detecting sentiment and topic modeling.
+This is a Next.js web application that serves as a news aggregator. The app aggregates top articles from predefined news sources, provides summaries of articles, and detects their sentimentes. It consists of frontend components for displaying the feed, article list, and individual articles, as well as backend APIs for retrieving top articles, summarizing articles, detecting sentiment and topic modeling.
 
 An explanation regarding only the python code can be foud here: [netebook](https://nbviewer.org/github/lucapdr1/news-aggregator/blob/main/ml/00news_aggregator.ipynb)
 
@@ -10,7 +10,7 @@ An explanation regarding only the python code can be foud here: [netebook](https
 
 - **components**: Contains React components responsible for rendering different parts of the user interface. `Feed.tsx` renders the main feed page, `ArticleList.tsx` renders a list of articles, and `ArticleItem.tsx` renders an individual article item.
 - **api**: Includes backend API endpoints for interacting with the machine learning scripts and retrieving data for the frontend. The `top-articles` endpoint retrieves top articles, the `sentiment` endpoint detects sentiment, and the `summary` endpoint provides article summaries.
-- **ml**: Houses Python scripts for performing machine learning tasks. `top_articles.py` scrapes top articles from predefined news sources, `sentiment.py` detects the sentiment of articles, `summary.py` generates summaries of articles and '`topic.py` extracts the topic of the text.
+- **ml**: Houses Python scripts for performing machine learning tasks. `top_articles.py` scrapes top articles from predefined news sources, `sentiment.py` detects the sentiment of articles, `summary.py` generates summaries of articles and `topic.py` extracts the topic of the text.
 
 ## Usage
 To run the application:
@@ -23,6 +23,7 @@ To run the application:
 - Next.js: Framework for building React applications
 - Newspaper4k: Library for web scraping news articles
 - Transformers: Library for natural language processing tasks
+- Sklearn: Library to implement machine learning models
 
 
 ## Features
