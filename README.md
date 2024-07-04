@@ -76,6 +76,7 @@ This approach creates a production image by leveraging multi-stage builds and in
 
 
 ## Demo
+![Loading](public/img/loading.PNG)
 
 Once loaded, the web application constructs a dynamic feed featuring the most recent articles from renowned newspapers.
 
@@ -84,3 +85,5 @@ Once loaded, the web application constructs a dynamic feed featuring the most re
 For each article, we can initiate our Python scripts via an API call. These scripts, powered by machine learning models, execute specified tasks and deliver responses in JSON format which is integrated into the React components
 
 ![Article](public/img/article.PNG)
+![Example1](public/img/example1.PNG)
+![Example2](public/img/example2.PNG)

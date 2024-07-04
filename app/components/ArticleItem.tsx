@@ -14,9 +14,12 @@ interface Props {
 
 const ArticleItem: React.FC<Props> = ({ article }) => {
     const [summary, setSummary] = useState<string | null>(null);
-    const [Sentiment, setSentiment] = useState<string | null>(null);
+    const [sentiment, setSentiment] = useState<string | null>(null);
+    const [topic, setTopic] = useState<string | null>(null);
+
     const [loadingSummary, setLoadingSummary] = useState<boolean>(false);
     const [loadingSentiment, setLoadingSentiment] = useState<boolean>(false);
+    const [loadingTopic, setLoadingTopic] = useState<boolean>(false);
 
     const summarizeArticle = async () => {
         setLoadingSummary(true)
@@ -46,7 +49,7 @@ const ArticleItem: React.FC<Props> = ({ article }) => {
                 headers: {
                   'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ url : article.url }),
+                body: JSON.stringify({ text : article.text }),
               });
             const data = await res.json();
             setSentiment(data);
@@ -54,6 +57,25 @@ const ArticleItem: React.FC<Props> = ({ article }) => {
             console.error('Error getting sentiment:', error);
         }finally{
             setLoadingSentiment(false)
+        }
+    };
+
+    const getTopic = async () => {
+        setLoadingTopic(true)
+        try {
+            const res = await fetch('api/topic', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text : article.text }),
+              });
+            const data = await res.json();
+            setTopic(data);
+        } catch (error) {
+            console.error('Error getting topic:', error);
+        }finally{
+            setLoadingTopic(false)
         }
     };
 
@@ -76,9 +98,17 @@ const ArticleItem: React.FC<Props> = ({ article }) => {
                 >
                     {loadingSentiment ? 'Loading Sentiment...' : 'Get sentiment'}
                 </button>
+                <button
+                    className="mx-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+                    onClick={getTopic}
+                    disabled={loadingTopic}
+                >
+                    {loadingTopic ? 'Loading Topic...' : 'Get Topic'}
+                </button>
             </div>
+            {topic && <p><strong>topic:</strong> {topic}</p>}
             {summary && <p className="mb-2"><strong>Summary:</strong> {summary}</p>}
-            {Sentiment && <p><strong>sentiment:</strong> {Sentiment}</p>}
+            {sentiment && <p><strong>sentiment:</strong> {sentiment}</p>}
         </div>
     );
 };

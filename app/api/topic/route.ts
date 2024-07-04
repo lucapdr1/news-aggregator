@@ -5,13 +5,12 @@ import path from 'path';
 export async function POST(req: NextRequest) {
   
   const { text } = await req.json();
-  console.log(text)
-
-  let processedText = text.substring(0, 512);
+  const textMod = text.replace(/\s+/g, ' ')
+  //console.log(textMod)
 
   //TODO: check if dirname is exact
-  const scriptPath = path.join(process.cwd(), '/ml', 'sentiment.py');
-  const childProcess = spawn('python', [scriptPath, processedText]);
+  const scriptPath = path.join(process.cwd(), '/ml', 'topic.py');
+  const childProcess = spawn('python', [scriptPath, textMod]);
 
   let result = '';
 
