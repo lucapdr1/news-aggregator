@@ -49,7 +49,7 @@ The script includes a `get_topic` function that determines the main topics of ar
 The [`\ml\tests`](https://github.com/lucapdr1/news-aggregator/tree/main/ml/tests) folder contains comprehensive tests for the sentiment analysis module, including tests for various types of predictions and for verifying the completeness of the data scraped using the newspaper library.
 
 To run the tests execute the command `python -m unittest discover -s .\ml\tests\` from the root folder of the project. Example:
-[`tests_result`](public/img/tests.PNG) folder contains comprehensive tests for the sentiment
+![tests_results](public/img/tests.PNG) folder contains comprehensive tests for the sentiment
 
 ## Deployment
 
