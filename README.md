@@ -1,5 +1,7 @@
 # News Aggregator
 
+Luca Pedranzini
+
 ## Introduction
 This is a Next.js web application that serves as a news aggregator. The app aggregates top articles from predefined news sources, provides summaries of articles, and detects their sentimentes. It consists of frontend components for displaying the feed, article list, and individual articles, as well as backend APIs for retrieving top articles, summarizing articles, detecting sentiment and topic modeling.
 
